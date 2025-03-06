@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unconventional Minds</title>
+    <style>
+        @font-face {
+            font-family: 'DOS';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
+            /* Fallback font options */
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'DOS', 'Courier New', monospace;
+            color: #EB5E28;
+        }
+        
+        .container {
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .stars {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 30px;
+            margin: 40px 0;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 24px;
+            margin: 40px 0;
+        }
+        
+        .loading {
+            margin: 60px 0;
+            font-size: 24px;
+        }
+        
+        .dots {
+            display: inline-block;
+        }
+        
+        .progress-container {
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .progress-label {
+            font-size: 22px;
+            margin-right: 10px;
+        }
+        
+        .progress-bar-container {
+            flex-grow: 1;
+            height: 30px;
+            background-color: transparent;
+            border: none;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 87%;
+            background-color: #EB5E28;
+        }
+        
+        .progress-number {
+            font-size: 22px;
+        }
+        
+        .divider {
+            border-bottom: 2px dashed #EB5E28;
+            margin: 40px 0;
+        }
+        
+        .support {
+            font-size: 20px;
+            margin: 40px 0;
+        }
+        
+        .email-link {
+            color: #EB5E28;
+            text-decoration: none;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stars">****************************************</div>
+        
+        <div class="title">UNCONVENTIONAL MINDS</div>
+        
+        <div class="subtitle">Deep Tech Start Up Studio</div>
+        
+        <div class="stars">****************************************</div>
+        
+        <div class="loading">Loading<span class="dots">...</span></div>
+        
+        <div class="divider"></div>
+        
+        <div class="progress-container">
+            <div class="progress-label">Progress:</div>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="progress-number">87%</div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="support">support: <a href="mailto:paolo@unconventionalminds.it" class="email-link">paolo@unconventionalminds.it</a></div>
+    </div>
+
+    <script>
+        // Animazione dei puntini di caricamento
+        let dots = document.querySelector('.dots');
+        let count = 0;
+        
+        function animateDots() {
+            count = (count + 1) % 4;
+            
+            switch(count) {
+                case 0:
+                    dots.textContent = '';
+                    break;
+                case 1:
+                    dots.textContent = '.';
+                    break;
+                case 2:
+                    dots.textContent = '..';
+                    break;
+                case 3:
+                    dots.textContent = '...';
+                    break;
+            }
+            
+            setTimeout(animateDots, 500);
+        }
+        
+        // Avvia l'animazione
+        animateDots();
+    </script>
+</body>
+</html>
