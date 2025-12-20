@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "title": "UNCONVENTIONAL MINDS - Robotics Venture Studio",
+    "description": "We bridge the gap between Lab & Market. From zero to Exit in 24 Months."
+  },
+
+  "header": {
+    "logoBySection": {
+      "sec-0": {
+        "text": "Unconventional",
+        "emphasizedText": "Minds"
+      },
+      "sec-1": {
+        "text": "Unconventional",
+        "emphasizedText": "Solutions"
+      },
+      "sec-2": {
+        "text": "Unconventional",
+        "emphasizedText": "Protocol"
+      },
+      "sec-3": {
+        "text": "Unconventional",
+        "emphasizedText": "Capital"
+      },
+      "sec-4": {
+        "text": "Unconventional",
+        "emphasizedText": "Workers"
+      }
+    }
+  },
+
+  "sections": {
+    "home": {
+      "tag": "01 // VENTURE_STUDIO.UM",
+      "title": {
+        "line1": "BUILD",
+        "line2": "PHYSICAL",
+        "line3": "ASSETS."
+      },
+      "tags": [
+        "[ MARKET_DRIVEN ]",
+        "[ ART_INSPIRED ]",
+        "[ TECH_BUILT ]"
+      ],
+      "description": {
+        "strong": "ROBOTICS VENTURE STUDIO.",
+        "text": "We bridge the gap between Lab & Market.<br>\nFrom zero to Exit in 24 Months."
+      }
+    },
+
+    "os": {
+      "tag": "02 // UM_OS25.UM",
+      "title": "SYSTEM ARCHITECTURE",
+      "subtitle": "Our proprietary operating model. Three distinct engines.",
+      "cards": [
+        {
+          "title": "VENTURE<br>LABS",
+          "description": "We create our own monsters. <br> Proprietary IP. Exit focus.",
+          "label": "[ EQUITY ENGINE ]"
+        },
+        {
+          "title": "CORPORATE<br>BUILDING",
+          "description": "Startup-as-a-Service. <br> Whiteboard to hardware MVP in 6 months.",
+          "label": "[ PARTNERSHIP ENGINE ]"
+        },
+        {
+          "title": "DEEP TECH<br>SOLUTIONS",
+          "description": "Engineering for corporate. <br> Solving blockers.",
+          "label": "[ CASH FLOW ENGINE ]"
+        }
+      ]
+    },
+
+    "protocol": {
+      "title": "4D EXECUTION GRID",
+      "subtitle": "Time-boxed framework ensuring delivery speed and focus.",
+      "steps": [
+        {
+          "number": "STEP 01 // 4 WKS",
+          "title": "SCOUT",
+          "description": "Data-driven validation.<br>Extract market fit before building."
+        },
+        {
+          "number": "STEP 02 // 2 MO",
+          "title": "CONCEPT",
+          "description": "Identity first.<br>Aesthetic function.<br>Defining the soul."
+        },
+        {
+          "number": "STEP 03 // 6 MO",
+          "title": "BUILD",
+          "description": "Brutal Engineering.<br>Modular stack, ROS2, dirty MVP."
+        },
+        {
+          "number": "STEP 04 // +7 MO",
+          "title": "DEPLOY",
+          "description": "Validation & Exit.<br>Pilots in real world context."
+        }
+      ]
+    },
+
+    "investors": {
+      "title": "HARD TECH IS<br>THE ONLY ASSET<br>CLASS THAT MATTERS.",
+      "subtitle": "Software is saturated. Atoms are the new frontier.",
+      "stats": [
+        {
+          "label": "ROUND SIZE",
+          "value": "1 M€"
+        },
+        {
+          "label": "TARGET EXIT",
+          "value": "24 MO"
+        }
+      ]
+    },
+
+    "contact": {
+      "title": "JOIN<br><span class=\"highlight\">THE</span><br>STUDIO",
+      "subtitle": "Three paths. One destination.",
+      "buttons": [
+        {
+          "subtitle": "[ NEED EXECUTION? ]",
+          "title": "CORPORATE",
+          "email": "info@unconventional.studio"
+        },
+        {
+          "subtitle": "[ JOIN PIPELINE ]",
+          "title": "FOUNDER",
+          "email": "founders@unconventional.studio"
+        },
+        {
+          "subtitle": "[ SEEKING ALPHA ]",
+          "title": "INVESTOR",
+          "email": "invest@unconventional.studio"
+        }
+      ]
+    }
+  },
+
+  "footer": {
+    "text": "UM_OS25 // UNCONVENTIONAL MINDS S.R.L. / GENOVA / ITALY"
+  }
+}

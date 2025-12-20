@@ -2,166 +2,182 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unconventional Minds</title>
-    <style>
-        @font-face {
-            font-family: 'DOS';
-            src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
-            /* Fallback font options */
-            font-family: 'Courier New', monospace;
-        }
-        
-        body {
-            background-color: #000000;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'DOS', 'Courier New', monospace;
-            color: #EB5E28;
-        }
-        
-        .container {
-            width: 80%;
-            max-width: 800px;
-        }
-        
-        .stars {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 24px;
-            letter-spacing: 2px;
-        }
-        
-        .title {
-            text-align: center;
-            font-size: 30px;
-            margin: 40px 0;
-        }
-        
-        .subtitle {
-            text-align: center;
-            font-size: 24px;
-            margin: 40px 0;
-        }
-        
-        .loading {
-            margin: 60px 0;
-            font-size: 24px;
-        }
-        
-        .dots {
-            display: inline-block;
-        }
-        
-        .progress-container {
-            margin: 30px 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .progress-label {
-            font-size: 22px;
-            margin-right: 10px;
-        }
-        
-        .progress-bar-container {
-            flex-grow: 1;
-            height: 30px;
-            background-color: transparent;
-            border: none;
-            margin: 0 10px;
-            position: relative;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            width: 87%;
-            background-color: #EB5E28;
-        }
-        
-        .progress-number {
-            font-size: 22px;
-        }
-        
-        .divider {
-            border-bottom: 2px dashed #EB5E28;
-            margin: 40px 0;
-        }
-        
-        .support {
-            font-size: 20px;
-            margin: 40px 0;
-        }
-        
-        .email-link {
-            color: #EB5E28;
-            text-decoration: none;
-        }
-        
-        .email-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UNCONVENTIONAL MINDS - Robotics Venture Studio</title>
+    <meta name="description" content="We bridge the gap between Lab & Market. From zero to Exit in 24 Months.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Space+Grotesk:wght@300;400;500;600&family=Syncopate:wght@400;700&family=VT323&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="stars">****************************************</div>
-        
-        <div class="title">UNCONVENTIONAL MINDS</div>
-        
-        <div class="subtitle">Deep Tech Start Up Studio</div>
-        
-        <div class="stars">****************************************</div>
-        
-        <div class="loading">Loading<span class="dots">...</span></div>
-        
-        <div class="divider"></div>
-        
-        <div class="progress-container">
-            <div class="progress-label">Progress:</div>
-            <div class="progress-bar-container">
-                <div class="progress-bar"></div>
+
+    <!-- INTRO -->
+    <div id="intro-layer"><div id="boot-console"></div></div>
+
+    <!-- SITE -->
+    <div id="modern-layer">
+        <div class="cursor"></div>
+
+        <header class="nav-bar">
+            <div class="brand-logo" onclick="location.reload()">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <span class="logo-unconventional">Unconventional</span>
+                    <span class="logo-minds">Minds</span>
+                </div>
             </div>
-            <div class="progress-number">87%</div>
+
+            <div class="nav-group-right">
+                <ul class="nav-links">
+                    <li class="nav-item" id="n0" onclick="goTo(0)">HOME</li>
+                    <li class="nav-item" id="n1" onclick="goTo(1)">UM OS25</li>
+                    <li class="nav-item" id="n2" onclick="goTo(2)">PROTOCOL</li>
+                    <li class="nav-item" id="n3" onclick="goTo(3)">INVESTORS</li>
+                </ul>
+                <button class="talk-btn interactive" onclick="goTo(4)">LET'S TALK</button>
+            </div>
+        </header>
+
+        <div class="progress-bar" id="bar"></div>
+        <div class="progress-star" id="star">✶</div>
+
+        <div class="scroll-container" id="track">
+
+            <!-- 01 HOME -->
+            <section class="section s-home" id="sec-0">
+                <div class="sec-tag">01 // VENTURE_STUDIO.UM</div>
+                <h1 class="hero-title">BUILD<br><span>PHYSICAL</span><br>ASSETS.</h1>
+                <div class="hero-content">
+                    <div class="hero-tags">
+                        <span class="h-tag">[ MARKET_DRIVEN ]</span>
+                        <span class="h-tag">[ ART_INSPIRED ]</span>
+                        <span class="h-tag">[ TECH_BUILT ]</span>
+                    </div>
+                    <div class="hero-desc">
+                        <h2>ROBOTICS VENTURE STUDIO.</h2>
+                        We bridge the gap between Lab & Market.<br>
+                        From zero to Exit in 24 Months.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 02 OS (Reordered) -->
+            <section class="section s-os" id="sec-1">
+                <div class="intro-blk">
+                    <div class="sec-tag">02 // UM_OS25.UM</div>
+                    <h2 class="tit-2">SYSTEM ARCHITECTURE</h2>
+                    <div class="sub-2">Our proprietary operating model. Three distinct engines.</div>
+                </div>
+
+                <div class="stage">
+                    <div class="os-wrap">
+                        <!-- 1. VENTURE (Sinistra/Prima) -->
+                        <div class="os-card interactive">
+                            <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=60&w=800&auto=format&fit=crop" class="os-img" alt="">
+                            <h3>VENTURE<br>LABS</h3>
+                            <p>We create our own monsters. <br> Proprietary IP. Exit focus.</p>
+                            <div class="os-mono">[ EQUITY ENGINE ]</div>
+                        </div>
+
+                        <!-- 2. CORPORATE (Centro) -->
+                        <div class="os-card interactive">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c54e8d577130?q=60&w=800&auto=format&fit=crop" class="os-img" alt="">
+                            <h3>CORPORATE<br>BUILDING</h3>
+                            <p>Startup-as-a-Service. <br> Whiteboard to hardware MVP in 6 months.</p>
+                            <div class="os-mono">[ PARTNERSHIP ENGINE ]</div>
+                        </div>
+
+                        <!-- 3. SOLUTIONS (Destra/Ultima) -->
+                        <div class="os-card interactive">
+                            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=60&w=800&auto=format&fit=crop" class="os-img" alt="">
+                            <h3>DEEP TECH<br>SOLUTIONS</h3>
+                            <p>Engineering for corporate. <br> Solving blockers.</p>
+                            <div class="os-mono">[ CASH FLOW ENGINE ]</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 03 PROTOCOL -->
+            <section class="section s-proto" id="sec-2">
+                <div class="intro-blk">
+                    <h2 class="tit-2">4D EXECUTION GRID</h2>
+                    <div class="sub-2" style="color: var(--text);">Time-boxed framework ensuring delivery speed and focus.</div>
+                </div>
+
+                <div class="stage">
+                    <div class="time-rail">
+                        <div class="time-fill" id="tFill">
+                            <div class="robo-head"><div class="eye"></div><div class="eye"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="proto-grid">
+                        <div class="p-card interactive" id="ps-1">
+                            <div><span class="p-num">STEP 01 // 4 WKS</span><h4 class="p-title">SCOUT</h4></div>
+                            <p class="p-desc">Data-driven validation.<br>Extract market fit before building.</p>
+                        </div>
+                        <div class="p-card interactive" id="ps-2">
+                            <div><span class="p-num">STEP 02 // 2 MO</span><h4 class="p-title">CONCEPT</h4></div>
+                            <p class="p-desc">Identity first.<br>Aesthetic function.<br>Defining the soul.</p>
+                        </div>
+                        <div class="p-card interactive" id="ps-3">
+                            <div><span class="p-num">STEP 03 // 6 MO</span><h4 class="p-title">BUILD</h4></div>
+                            <p class="p-desc">Brutal Engineering.<br>Modular stack, ROS2, dirty MVP.</p>
+                        </div>
+                        <div class="p-card interactive" id="ps-4">
+                            <div><span class="p-num">STEP 04 // +7 MO</span><h4 class="p-title">DEPLOY</h4></div>
+                            <p class="p-desc">Validation & Exit.<br>Pilots in real world context.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 04 INVESTORS -->
+            <section class="section s-inv" id="sec-3">
+                <div class="inv-container">
+                    <div class="inv-tit">HARD TECH IS<br>THE ONLY ASSET<br>CLASS THAT MATTERS.</div>
+                    <p style="color: white; margin-bottom: 40px; font-size: 1.5rem; font-family: 'Roboto Mono', monospace; text-transform: uppercase; font-weight: 500;">Software is saturated. Atoms are the new frontier.</p>
+                    <div class="inv-stats">
+                        <div><small>ROUND SIZE</small><span>2 M€</span></div>
+                        <div><small>TARGET EXIT</small><span>18 MO</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 05 CONTACT -->
+            <section class="section s-cont" id="sec-4">
+                <div class="stage">
+                    <div class="intro-blk">
+                        <h2 class="tit-2">JOIN<br><span class="highlight">THE</span><br>STUDIO</h2>
+                        <div class="sub-2">Three paths. One destination.</div>
+                    </div>
+
+                    <div class="contact-stack">
+                        <a href="mailto:info@unconventional.studio" class="c-btn interactive">
+                            <div class="c-txt"><div class="c-sub">[ NEED EXECUTION? ]</div><div class="c-tit">CORPORATE</div></div>
+                        </a>
+                        <a href="mailto:founders@unconventional.studio" class="c-btn interactive">
+                            <div class="c-txt"><div class="c-sub">[ JOIN PIPELINE ]</div><div class="c-tit">FOUNDER</div></div>
+                        </a>
+                        <a href="mailto:invest@unconventional.studio" class="c-btn interactive">
+                            <div class="c-txt"><div class="c-sub">[ SEEKING ALPHA ]</div><div class="c-tit">INVESTOR</div></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer">UM_OS25 // UNCONVENTIONAL MINDS S.R.L. / GENOVA / ITALY</div>
+            </section>
+
         </div>
-        
-        <div class="divider"></div>
-        
-        <div class="support">support: <a href="mailto:paolo@unconventionalminds.it" class="email-link">paolo@unconventionalminds.it</a></div>
     </div>
 
-    <script>
-        // Animazione dei puntini di caricamento
-        let dots = document.querySelector('.dots');
-        let count = 0;
-        
-        function animateDots() {
-            count = (count + 1) % 4;
-            
-            switch(count) {
-                case 0:
-                    dots.textContent = '';
-                    break;
-                case 1:
-                    dots.textContent = '.';
-                    break;
-                case 2:
-                    dots.textContent = '..';
-                    break;
-                case 3:
-                    dots.textContent = '...';
-                    break;
-            }
-            
-            setTimeout(animateDots, 500);
-        }
-        
-        // Avvia l'animazione
-        animateDots();
-    </script>
+    <!-- External JS -->
+    <script src="js/loader.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
