@@ -39,13 +39,20 @@ const logoIcon = document.querySelector('.logo-icon');
 const logoUnconventional = document.querySelector('.logo-unconventional');
 const logoMinds = document.querySelector('.logo-minds');
 
-// Logo text per sezione
+// Logo text per sezione - loaded from config.js
 const logoTexts = {
-    0: 'Minds',
-    1: 'Solutions',
-    2: 'Protocol',
-    3: 'Capital',
-    4: 'Workers'
+    0: LOGO_CONFIG.logoBySection['sec-0'].emphasizedText,
+    1: LOGO_CONFIG.logoBySection['sec-1'].emphasizedText,
+    2: LOGO_CONFIG.logoBySection['sec-2'].emphasizedText,
+    3: LOGO_CONFIG.logoBySection['sec-3'].emphasizedText,
+    4: LOGO_CONFIG.logoBySection['sec-4'].emphasizedText
+};
+const logoBaseTexts = {
+    0: LOGO_CONFIG.logoBySection['sec-0'].text,
+    1: LOGO_CONFIG.logoBySection['sec-1'].text,
+    2: LOGO_CONFIG.logoBySection['sec-2'].text,
+    3: LOGO_CONFIG.logoBySection['sec-3'].text,
+    4: LOGO_CONFIG.logoBySection['sec-4'].text
 };
 
 let cur=0, tar=0, max=0;
@@ -98,12 +105,14 @@ function updateMobileProgress() {
     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollProgress = scrollTop / scrollHeight;
 
-    // Update progress bar
-    bar.style.width = (scrollProgress * 100) + '%';
+    // Update progress bar (only if it exists)
+    if(bar) {
+        bar.style.width = (scrollProgress * 100) + '%';
+    }
 
-    // Update progress star
+    // Update progress star (only if it exists)
     if(star) {
-        let starLeft = 10 + (scrollProgress * 72); // From 10% to 82%
+        let starLeft = 0 + (scrollProgress * 72); // From 10% to 82%
         star.style.left = starLeft + '%';
     }
 
@@ -113,31 +122,37 @@ function updateMobileProgress() {
     let currentSection = Math.round(scrollTop / sectionHeight);
     currentSection = Math.min(currentSection, 3); // max nav index is 3
 
-    navs.forEach(n => n.classList.remove('active'));
+    navs.forEach(n => {
+        n.classList.remove('active');
+        // Apply on-orange class based on current section
+        if(currentSection === 1 || currentSection === 3) {
+            n.classList.add('on-orange');
+        } else {
+            n.classList.remove('on-orange');
+        }
+    });
     if(navs[currentSection]) navs[currentSection].classList.add('active');
 
-    // Change star color based on section
+    // Change star color based on section (only if elements exist)
     if(currentSection === 1 || currentSection === 3) {
-        star.classList.add('on-orange');
+        if(star) star.classList.add('on-orange');
+		if(cursor) cursor.classList.add('on-orange');
     } else {
-        star.classList.remove('on-orange');
+        if(star) star.classList.remove('on-orange');
+		if(cursor) cursor.classList.remove('on-orange');
     }
 
-    // Logo color change on orange sections (1 and 3)
+    // Logo image and color change on orange sections (1 and 3)
     if(currentSection === 1 || currentSection === 3) {
         if(logoIcon) {
-            logoIcon.style.background = '#fff';
-            logoIcon.style.borderColor = '#fff';
-            logoIcon.style.setProperty('--icon-core-color', 'var(--accent)');
+            logoIcon.style.backgroundImage = "url('assets/Logo_white.png')";
         }
         if(logoUnconventional) {
             logoUnconventional.style.color = '#fff';
         }
     } else {
         if(logoIcon) {
-            logoIcon.style.background = 'var(--accent)';
-            logoIcon.style.borderColor = 'var(--text)';
-            logoIcon.style.setProperty('--icon-core-color', 'var(--text)');
+            logoIcon.style.backgroundImage = "url('assets/Logo_dark.png')";
         }
         if(logoUnconventional) {
             logoUnconventional.style.color = 'var(--accent)';
@@ -153,83 +168,129 @@ function updateMobileProgress() {
             logoMinds.style.opacity = '1';
         }, 300);
     }
+    // Change logo base text (Unconventional)
+    if(logoUnconventional && logoBaseTexts[currentSection]) {
+        logoUnconventional.textContent = logoBaseTexts[currentSection];
+    }
 }
 
+let lastSectionIndex = -1;
+
 function loop() {
-    if(!isMobile) {
-        // Physics for desktop
+    if (!isMobile) {
+
+        // =========================
+        // SCROLL PHYSICS
+        // =========================
         cur += (tar - cur) * 0.08;
         track.style.transform = `translateX(-${cur}px)`;
-        if(max > 0) bar.style.width = (cur/max)*100 + '%';
 
-        // Navigation Highlighting
-        let i = Math.round(cur / window.innerWidth);
-        navs.forEach(n => n.classList.remove('active'));
-        if(navs[i]) navs[i].classList.add('active');
+        if (max > 0) {
+            //bar.style.width = (cur / max) * 100 + '%';
+        }
 
-        // Progress Star Movement (5 sections: 0-4)
-        if(star && max > 0) {
-            let progress = cur / max; // 0 to 1
-            let sectionProgress = progress * (totalSections - 1); // 0 to 4
-            let starLeft = 10 + (sectionProgress * 18); // From 10% to 82% (10 + 4*18)
+        // =========================
+        // SECTION CALCULATION
+        // =========================
+        let progress = max > 0 ? cur / max : 0;
+        progress = Math.max(0, Math.min(1, progress));
+
+        let currentSectionIndex = Math.floor(progress * totalSections - 0.0001);
+
+
+        // =========================
+        // SECTION CHANGE EVENT
+        // =========================
+        if (currentSectionIndex !== lastSectionIndex) {
+            lastSectionIndex = currentSectionIndex;
+
+            const isOrange = (currentSectionIndex === 1 || currentSectionIndex === 3);
+
+            // -------------------------
+            // NAVIGATION
+            // -------------------------
+            navs.forEach((n, i) => {
+                n.classList.toggle('active', i === currentSectionIndex);
+                n.classList.toggle('on-orange', isOrange);
+            });
+
+            // -------------------------
+            // STAR + CURSOR COLOR
+            // -------------------------
+            if (star) {
+                star.classList.toggle('on-orange', isOrange);
+            }
+
+            if (cursor) {
+                cursor.classList.toggle('on-orange', isOrange);
+            }
+
+            // -------------------------
+            // LOGO ICON + COLOR
+            // -------------------------
+            if (logoIcon) {
+                logoIcon.style.backgroundImage = isOrange
+                    ? "url('assets/Logo_white.png')"
+                    : "url('assets/Logo_dark.png')";
+            }
+
+            if (logoUnconventional) {
+                logoUnconventional.style.color = isOrange ? '#fff' : 'var(--accent)';
+            }
+
+            // -------------------------
+            // LOGO TEXT (FADE)
+            // -------------------------
+            if (
+                logoMinds &&
+                logoTexts[currentSectionIndex] &&
+                currentLogoText !== logoTexts[currentSectionIndex]
+            ) {
+                currentLogoText = logoTexts[currentSectionIndex];
+                logoMinds.style.opacity = '0';
+
+                setTimeout(() => {
+                    logoMinds.textContent = currentLogoText;
+                    logoMinds.style.opacity = '1';
+                }, 300);
+            }
+
+            if (logoUnconventional && logoBaseTexts[currentSectionIndex]) {
+                logoUnconventional.textContent = logoBaseTexts[currentSectionIndex];
+            }
+        }
+
+        // =========================
+        // STAR MOVEMENT (ONLY)
+        // =========================
+        if (star && max > 0) {
+            let progress = cur / max;
+            let sectionProgress = progress * (totalSections - 1);
+            let starLeft = sectionProgress * 25;
             star.style.left = starLeft + '%';
-
-            // Change color on orange sections (1 and 3)
-            if(i === 1 || i === 3) {
-                star.classList.add('on-orange');
-            } else {
-                star.classList.remove('on-orange');
-            }
         }
 
-        // Logo color change on orange sections (1 and 3)
-        if(i === 1 || i === 3) {
-            if(logoIcon) {
-                logoIcon.style.background = '#fff';
-                logoIcon.style.borderColor = '#fff';
-            }
-            if(logoIcon && logoIcon.querySelector) {
-                const iconCore = logoIcon;
-                iconCore.style.setProperty('--icon-core-color', 'var(--accent)');
-            }
-            if(logoUnconventional) {
-                logoUnconventional.style.color = '#fff';
-            }
-        } else {
-            if(logoIcon) {
-                logoIcon.style.background = 'var(--accent)';
-                logoIcon.style.borderColor = 'var(--text)';
-            }
-            if(logoUnconventional) {
-                logoUnconventional.style.color = 'var(--accent)';
-            }
-        }
-
-        // Change logo text based on section with fade
-        if(logoMinds && logoTexts[i] && currentLogoText !== logoTexts[i]) {
-            currentLogoText = logoTexts[i];
-            logoMinds.style.opacity = '0';
-            setTimeout(() => {
-                logoMinds.textContent = currentLogoText;
-                logoMinds.style.opacity = '1';
-            }, 300);
-        }
-
-        // Timeline Animation logic (Desktop only)
-        if(sProto && tBar) {
+        // =========================
+        // TIMELINE (DESKTOP)
+        // =========================
+        if (sProto && tBar) {
             let start = sProto.offsetLeft;
             let rel = cur - start + (window.innerWidth * 0.55);
             let pct = Math.max(0, Math.min(1, rel / (window.innerWidth * 0.8)));
+
             tBar.style.width = (pct * 100) + '%';
 
-            if(pct > 0.1) pSteps[0].classList.add('active'); else pSteps[0].classList.remove('active');
-            if(pct > 0.35) pSteps[1].classList.add('active'); else pSteps[1].classList.remove('active');
-            if(pct > 0.6) pSteps[2].classList.add('active'); else pSteps[2].classList.remove('active');
-            if(pct > 0.85) pSteps[3].classList.add('active'); else pSteps[3].classList.remove('active');
+            if (pct > 0.1) pSteps[0].classList.add('active'); else pSteps[0].classList.remove('active');
+            if (pct > 0.35) pSteps[1].classList.add('active'); else pSteps[1].classList.remove('active');
+            if (pct > 0.6) pSteps[2].classList.add('active'); else pSteps[2].classList.remove('active');
+            if (pct > 0.85) pSteps[3].classList.add('active'); else pSteps[3].classList.remove('active');
         }
     }
+
     requestAnimationFrame(loop);
 }
+
+
 
 // GoTo with Logic Branching
 window.goTo = function(i) {
@@ -240,6 +301,7 @@ window.goTo = function(i) {
     } else {
         // Desktop Horizontal math
         tar = el.offsetLeft;
+        // Don't manually update colors - let the loop handle it based on actual position
     }
 }
 

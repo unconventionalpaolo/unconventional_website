@@ -5,10 +5,6 @@ on:
     branches:
       - main
       - staging
-    paths:
-      - 'content-simple.json'
-      - 'build.js'
-      - 'index.html'
   workflow_dispatch: # Permette di eseguire manualmente
 
 permissions:
@@ -24,59 +20,44 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Run build script
-        run: npm run build
-
-      - name: Check for changes
-        id: verify_diff
+      - name: Prepare deployment directory
         run: |
-          git diff --quiet index.html || echo "changed=true" >> $GITHUB_OUTPUT
+          mkdir -p deploy
+          cp index.html deploy/
+          cp -r css deploy/
+          cp -r js deploy/
+          cp -r assets deploy/
 
-      - name: Commit and push if changed
-        if: steps.verify_diff.outputs.changed == 'true'
-        run: |
-          git config --global user.name 'GitHub Actions Bot'
-          git config --global user.email 'actions@github.com'
-          git add index.html
-          git commit -m "🤖 Auto-build: Update HTML from content changes"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Deploy to production (main branch)
       - name: Deploy to Production
-        if: github.ref == 'refs/heads/main' && steps.verify_diff.outputs.changed == 'true'
-        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./deploy
           publish_branch: gh-pages
           destination_dir: .  # Root for production
-          exclude_assets: '.github,node_modules,.git,*.backup.html,*.original.html,staging'
+          force_orphan: false
 
       # Deploy to staging (staging branch)
       - name: Deploy to Staging
-        if: github.ref == 'refs/heads/staging' && steps.verify_diff.outputs.changed == 'true'
-        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/staging'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./deploy
           publish_branch: gh-pages
           destination_dir: staging  # Subfolder for staging
-          exclude_assets: '.github,node_modules,.git,*.backup.html,*.original.html'
           keep_files: true  # Mantiene i file production
+          force_orphan: false
 
       # Badge with environment info
       - name: Display deployment info
-        if: steps.verify_diff.outputs.changed == 'true'
         run: |
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-            echo "✅ Deployed to PRODUCTION: https://YOUR-USERNAME.github.io/unconventionalminds/"
+            echo "✅ Deployed to PRODUCTION: https://ciabhatta.github.io/unconventionalminds/"
           else
-            echo "✅ Deployed to STAGING: https://YOUR-USERNAME.github.io/unconventionalminds/staging/"
+            echo "✅ Deployed to STAGING: https://ciabhatta.github.io/unconventionalminds/staging/"
           fi
+

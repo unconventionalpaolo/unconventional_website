@@ -402,6 +402,9 @@ class ContentLoader {
 }
 
 // Initialize ContentLoader on DOM ready
+// DISABLED: Content is managed directly in HTML, not loaded from JSON
+// Uncomment below if you want to use dynamic content loading from content.json
+/*
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         window.contentLoader = new ContentLoader('content.json');
@@ -411,3 +414,4 @@ if (document.readyState === 'loading') {
     window.contentLoader = new ContentLoader('content.json');
     window.contentLoader.init();
 }
+*/

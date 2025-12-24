@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,15 +10,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Space+Grotesk:wght@300;400;500;600&family=Syncopate:wght@400;700&family=VT323&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Space+Grotesk:wght@300;400;500;600&family=Syncopate:wght@400;700&family=VT323&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Chillax Font -->
+    <link rel="stylesheet" href="assets/fonts/WEB/css/chillax.css">
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=2">
 </head>
+
 <body>
 
     <!-- INTRO -->
-    <div id="intro-layer"><div id="boot-console"></div></div>
+    <div id="intro-layer">
+        <div id="boot-console"></div>
+    </div>
 
     <!-- SITE -->
     <div id="modern-layer">
@@ -35,33 +44,38 @@
             <div class="nav-group-right">
                 <ul class="nav-links">
                     <li class="nav-item" id="n0" onclick="goTo(0)">HOME</li>
-                    <li class="nav-item" id="n1" onclick="goTo(1)">UM OS25</li>
-                    <li class="nav-item" id="n2" onclick="goTo(2)">PROTOCOL</li>
-                    <li class="nav-item" id="n3" onclick="goTo(3)">INVESTORS</li>
+                    <li class="nav-item" id="n1" onclick="goTo(1)">SOLUTIONS</li>
+                    <li class="nav-item" id="n2" onclick="goTo(2)">METHOD</li>
+                    <li class="nav-item" id="n3" onclick="goTo(3)">MARKET</li>
                 </ul>
                 <button class="talk-btn interactive" onclick="goTo(4)">LET'S TALK</button>
             </div>
         </header>
 
-        <div class="progress-bar" id="bar"></div>
-        <div class="progress-star" id="star">✶</div>
+        <!-- Progress wrapper con linea e stella -->
+        <div class="progress-wrapper">
+            <div class="progress-line"></div>
+            <div class="progress-star" id="star">✶</div>
+        </div>
 
         <div class="scroll-container" id="track">
 
             <!-- 01 HOME -->
             <section class="section s-home" id="sec-0">
-                <div class="sec-tag">01 // VENTURE_STUDIO.UM</div>
-                <h1 class="hero-title">BUILD<br><span>PHYSICAL</span><br>ASSETS.</h1>
-                <div class="hero-content">
-                    <div class="hero-tags">
-                        <span class="h-tag">[ MARKET_DRIVEN ]</span>
-                        <span class="h-tag">[ ART_INSPIRED ]</span>
-                        <span class="h-tag">[ TECH_BUILT ]</span>
+                <div class="hero-content hero-grid">
+                    <div class="hero-main">
+                        <h1 class="hero-title">TECH<br><span>WITH</span><br>SOUL</h1>
+                        <div class="hero-desc">
+                            <h2>ROBOTICS VENTURE STUDIO</h2>
+                            <div class="hero-tags">
+                                <span class="h-tag">[MARKET_DRIVEN]</span>
+                                <span class="h-tag">[ART_INSPIRED]</span>
+                                <span class="h-tag">[TECH_BUILT]</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="hero-desc">
-                        <h2>ROBOTICS VENTURE STUDIO.</h2>
-                        We bridge the gap between Lab & Market.<br>
-                        From zero to Exit in 24 Months.
+                    <div class="hero-aside">
+                        We build robotics ventures, transforming future market insights into tangible machines, blending hard data with functional aesthetics to engineer solutions that are truly market-pull.<br><br>Not just robots, but helpful allies designed to be used, trusted, and loved.<br><br><strong>From zero to exit.</strong>
                     </div>
                 </div>
             </section>
@@ -69,35 +83,49 @@
             <!-- 02 OS (Reordered) -->
             <section class="section s-os" id="sec-1">
                 <div class="intro-blk">
-                    <div class="sec-tag">02 // UM_OS25.UM</div>
-                    <h2 class="tit-2">SYSTEM ARCHITECTURE</h2>
-                    <div class="sub-2">Our proprietary operating model. Three distinct engines.</div>
+                    <h2 class="tit-2">THREE WAYS TO BUILD</h2>
+                    <div class="sub-2">We drive innovation through three distinct engines.</div>
                 </div>
 
                 <div class="stage">
                     <div class="os-wrap">
                         <!-- 1. VENTURE (Sinistra/Prima) -->
                         <div class="os-card interactive">
-                            <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=60&w=800&auto=format&fit=crop" class="os-img" alt="">
-                            <h3>VENTURE<br>LABS</h3>
-                            <p>We create our own monsters. <br> Proprietary IP. Exit focus.</p>
-                            <div class="os-mono">[ EQUITY ENGINE ]</div>
+                            <div class="os-card-border"></div>
+                            <div class="os-img-wrap">
+                                <img src="assets/img/startup-creation.jpg"
+                                class="os-img" alt="">
+                            </div>
+
+                            <h3>STARTUP<br>CREATION</h3>
+                            <p>Combining deep foresight with raw market data, we launch scalable, market-pull, human-centric robotic ventures from scratch.</p>
+                            <div class="os-mono">[UNCONVENTIONAL ENGINE]</div>
                         </div>
 
                         <!-- 2. CORPORATE (Centro) -->
                         <div class="os-card interactive">
-                            <img src="https://images.unsplash.com/photo-1504384308090-c54e8d577130?q=60&w=800&auto=format&fit=crop" class="os-img" alt="">
-                            <h3>CORPORATE<br>BUILDING</h3>
-                            <p>Startup-as-a-Service. <br> Whiteboard to hardware MVP in 6 months.</p>
-                            <div class="os-mono">[ PARTNERSHIP ENGINE ]</div>
+                            <div class="os-card-border"></div>
+                            <div class="os-img-wrap">
+                                <img src="assets/img/saas.jpg"
+                                class="os-img" alt="">
+                            </div>
+                            <h3>STARTUP<br>AS A SERVICE</h3>
+                            <p>We are your fast track.<br> We act as your external special ops team, turning complex ideas into market-ready robotic assets in months, not years.<br> 
+                                </p>
+                            <div class="os-mono">[SaaS ENGINE]</div>
                         </div>
 
                         <!-- 3. SOLUTIONS (Destra/Ultima) -->
                         <div class="os-card interactive">
-                            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=60&w=800&auto=format&fit=crop" class="os-img" alt="">
-                            <h3>DEEP TECH<br>SOLUTIONS</h3>
-                            <p>Engineering for corporate. <br> Solving blockers.</p>
-                            <div class="os-mono">[ CASH FLOW ENGINE ]</div>
+                            <div class="os-card-border"></div>
+                            <div class="os-img-wrap">
+                                <img src="assets/img/services.jpg"
+                                class="os-img" alt="">
+                            </div>
+                            <h3>HARD TECH<br>SOLUTIONS</h3>
+                            <p>Need Help? <br> Unconventional is here for you, with all services needed to build an
+                                incredible robot.</p>
+                            <div class="os-mono">[SERVICE ENGINE]</div>
                         </div>
                     </div>
                 </div>
@@ -106,33 +134,44 @@
             <!-- 03 PROTOCOL -->
             <section class="section s-proto" id="sec-2">
                 <div class="intro-blk">
-                    <h2 class="tit-2">4D EXECUTION GRID</h2>
-                    <div class="sub-2" style="color: var(--text);">Time-boxed framework ensuring delivery speed and focus.</div>
+                    <h2 class="tit-2">BETTER, FASTER, STRONGER.</h2>
+                    <div class="sub-2" style="color: var(--text);">Building robots is difficult, but 150 years of combined experience make the impossible scalable.<br> From first sketch to final deployment, every project runs through our 4D model.</div>
                 </div>
 
                 <div class="stage">
                     <div class="time-rail">
                         <div class="time-fill" id="tFill">
-                            <div class="robo-head"><div class="eye"></div><div class="eye"></div></div>
+                            <div class="robo-head">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="proto-grid">
                         <div class="p-card interactive" id="ps-1">
-                            <div><span class="p-num">STEP 01 // 4 WKS</span><h4 class="p-title">SCOUT</h4></div>
-                            <p class="p-desc">Data-driven validation.<br>Extract market fit before building.</p>
+                            <div><span class="p-num">STEP 01 // 4 WKS</span>
+                                <h4 class="p-title">DISCOVER</h4>
+                            </div>
+                            <p class="p-desc">We identify urgent, unsatisfied human needs. By combining trend analysis with raw market data, we pinpoint the exact gaps where robotics can generate value today.</p>
                         </div>
                         <div class="p-card interactive" id="ps-2">
-                            <div><span class="p-num">STEP 02 // 2 MO</span><h4 class="p-title">CONCEPT</h4></div>
-                            <p class="p-desc">Identity first.<br>Aesthetic function.<br>Defining the soul.</p>
+                            <div><span class="p-num">STEP 02 // 2 MO</span>
+                                <h4 class="p-title">DESIGN</h4>
+                            </div>
+                            <p class="p-desc">We define the robot's identity. We blend functional aesthetics with our proprietary interaction layer to ensure the machine is not just useful, but trusted and valuable.</p>
                         </div>
                         <div class="p-card interactive" id="ps-3">
-                            <div><span class="p-num">STEP 03 // 6 MO</span><h4 class="p-title">BUILD</h4></div>
-                            <p class="p-desc">Brutal Engineering.<br>Modular stack, ROS2, dirty MVP.</p>
+                            <div><span class="p-num">STEP 03 // 12 MO</span>
+                                <h4 class="p-title">DEVELOP</h4>
+                            </div>
+                            <p class="p-desc">From CAD to physical reality in months. We leverage our fractional execution engine to build a modular, scalable pre-series hardware ready for the field.</p>
                         </div>
                         <div class="p-card interactive" id="ps-4">
-                            <div><span class="p-num">STEP 04 // +7 MO</span><h4 class="p-title">DEPLOY</h4></div>
-                            <p class="p-desc">Validation & Exit.<br>Pilots in real world context.</p>
+                            <div><span class="p-num">STEP 04 // +12 MO</span>
+                                <h4 class="p-title">DEPLOY</h4>
+                            </div>
+                            <p class="p-desc">We launch the new-co tested in real-world pilots.<br>We deliver metric-driven validation to secure fast strategic acquisitions or scaling.</p>
                         </div>
                     </div>
                 </div>
@@ -141,11 +180,13 @@
             <!-- 04 INVESTORS -->
             <section class="section s-inv" id="sec-3">
                 <div class="inv-container">
-                    <div class="inv-tit">HARD TECH IS<br>THE ONLY ASSET<br>CLASS THAT MATTERS.</div>
-                    <p style="color: white; margin-bottom: 40px; font-size: 1.5rem; font-family: 'Roboto Mono', monospace; text-transform: uppercase; font-weight: 500;">Software is saturated. Atoms are the new frontier.</p>
+                    <div class="inv-tit">HARDWARE PROBLEMS<br>REQUIRE HARDWARE SOLUTIONS</div>
+                    <p
+                        style="color: white; margin-bottom: 40px; font-size: 1.5rem; font-family: 'Roboto Mono', monospace; text-transform: uppercase; font-weight: 500;">
+                        We are building an ecosystem of market-pull robotics ventures designed to solve urgent human needs.<br> With markets niches identified and proprietary IP in development, Unconventional Minds converts complex hard-tech challenges into scalable, investable assets.
                     <div class="inv-stats">
-                        <div><small>ROUND SIZE</small><span>2 M€</span></div>
-                        <div><small>TARGET EXIT</small><span>18 MO</span></div>
+                        <div><span>ROBOTICS MARKET 200B$ by 2030</span></div>
+                        <div><span>CAGR 15%</span></div>
                     </div>
                 </div>
             </section>
@@ -155,18 +196,27 @@
                 <div class="stage">
                     <div class="intro-blk">
                         <h2 class="tit-2">JOIN<br><span class="highlight">THE</span><br>STUDIO</h2>
-                        <div class="sub-2">Three paths. One destination.</div>
+                        <div class="sub-2">Spark the robotics [r]evolution.</div>
                     </div>
 
                     <div class="contact-stack">
-                        <a href="mailto:info@unconventional.studio" class="c-btn interactive">
-                            <div class="c-txt"><div class="c-sub">[ NEED EXECUTION? ]</div><div class="c-tit">CORPORATE</div></div>
+                        <a href="mailto:paolo@unconventionalminds.it" class="c-btn interactive">
+                            <div class="c-txt">
+                                <div class="c-sub">[INNOVATE WITH US]</div>
+                                <div class="c-tit">CORPORATE</div>
+                            </div>
                         </a>
-                        <a href="mailto:founders@unconventional.studio" class="c-btn interactive">
-                            <div class="c-txt"><div class="c-sub">[ JOIN PIPELINE ]</div><div class="c-tit">FOUNDER</div></div>
+                        <a href="mailto:paolo@unconventionalminds.it" class="c-btn interactive">
+                            <div class="c-txt">
+                                <div class="c-sub">[KICKSTART YOUR IDEA]</div>
+                                <div class="c-tit">FOUNDER</div>
+                            </div>
                         </a>
-                        <a href="mailto:invest@unconventional.studio" class="c-btn interactive">
-                            <div class="c-txt"><div class="c-sub">[ SEEKING ALPHA ]</div><div class="c-tit">INVESTOR</div></div>
+                        <a href="mailto:paolo@unconventionalminds.it" class="c-btn interactive">
+                            <div class="c-txt">
+                                <div class="c-sub">[DISCOVER OUR PIPELINE]</div>
+                                <div class="c-tit">INVESTOR</div>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -178,6 +228,8 @@
 
     <!-- External JS -->
     <script src="js/loader.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/animations.js"></script>
 </body>
+
 </html>
