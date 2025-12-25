@@ -1,0 +1,20 @@
+{
+  "name": "unconventional-minds",
+  "version": "1.0.0",
+  "description": "Unconventional Minds - Robotics Venture Studio",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node build.js"
+  },
+  "keywords": [
+    "robotics",
+    "venture-studio",
+    "static-site"
+  ],
+  "author": "Unconventional Minds",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

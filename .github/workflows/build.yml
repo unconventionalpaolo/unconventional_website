@@ -1,0 +1,63 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  workflow_dispatch: # Permette di eseguire manualmente
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p deploy
+          cp index.html deploy/
+          cp -r css deploy/
+          cp -r js deploy/
+          cp -r assets deploy/
+
+
+      # Deploy to production (main branch)
+      - name: Deploy to Production
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          publish_branch: gh-pages
+          destination_dir: .  # Root for production
+          force_orphan: false
+
+      # Deploy to staging (staging branch)
+      - name: Deploy to Staging
+        if: github.ref == 'refs/heads/staging'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          publish_branch: gh-pages
+          destination_dir: staging  # Subfolder for staging
+          keep_files: true  # Mantiene i file production
+          force_orphan: false
+
+      # Badge with environment info
+      - name: Display deployment info
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "✅ Deployed to PRODUCTION: https://ciabhatta.github.io/unconventionalminds/"
+          else
+            echo "✅ Deployed to STAGING: https://ciabhatta.github.io/unconventionalminds/staging/"
+          fi
+
